@@ -1,79 +1,46 @@
-package basicSyntaxConditionalStatementsAndLoopsMoreExercise;
-
 import java.util.Scanner;
 
 public class GamingStore {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        double balance = Double.parseDouble(scanner.nextLine());
+        double price = 0.0;
+        double totalSpend = 0.0;
+        boolean isNotFound = false;
+
         String input = scanner.nextLine();
-        double currentBalance = Double.parseDouble(input);
-        double copyCurrentBalance = currentBalance;
-        double price = 0;
-        input = scanner.nextLine();
 
         while (!input.equals("Game Time")) {
 
-            if (input.equals("OutFall 4")) {
-                price = 39.99;
-                if (currentBalance < price) {
-                    System.out.println("Too Expensive");
-                } else {
-                    System.out.println("Bought OutFall 4");
-                    currentBalance -= price;
-                }
-            } else if (input.equals("CS: OG")) {
-                price = 15.99;
-                if (currentBalance < price) {
-                    System.out.println("Too Expensive");
-                } else {
-                    System.out.println("Bought CS: OG");
-                    currentBalance -= price;
-                }
-            } else if (input.equals("Zplinter Zell")) {
-                price = 19.99;
-                if (currentBalance < price) {
-                    System.out.println("Too Expensive");
-                } else {
-                    System.out.println("Bought Zplinter Zell");
-                    currentBalance -= price;
-                }
-            } else if (input.equals("Honored 2")) {
-                price = 59.99;
-                if (currentBalance < price) {
-                    System.out.println("Too Expensive");
-                } else {
-                    System.out.println("Bought Honored 2");
-                    currentBalance -= price;
-                }
-            } else if (input.equals("RoverWatch")) {
-                price = 29.99;
-                if (currentBalance < price) {
-                    System.out.println("Too Expensive");
-                } else {
-                    System.out.println("Bought RoverWatch");
-                    currentBalance -= price;
-                }
-            } else if (input.equals("RoverWatch Origins Edition")) {
-                price = 39.99;
-                if (currentBalance < price) {
-                    System.out.println("Too Expensive");
-                } else {
-                    System.out.println("Bought RoverWatch Origins Edition");
-                    currentBalance -= price;
-                }
-            } else {
-                System.out.println("Not Found");
+            switch (input) {
+                case "OutFall 4": price = 39.99; break;
+                case "CS: OG": price = 15.99; break;
+                case "Zplinter Zell": price = 19.99; break;
+                case "Honored 2": price = 59.99; break;
+                case "RoverWatch": price = 29.99; break;
+                case "RoverWatch Origins Edition": price = 39.99; break;
+                default: System.out.println("Not Found"); isNotFound = true;
             }
 
+            if (price > balance) {
+                System.out.println("Too Expensive");
+            }
+
+            if (!isNotFound && balance >= price) {
+                balance -= price;
+                totalSpend += price;
+                System.out.printf("Bought %s%n", input);
+            }
+
+            isNotFound = false;
             input = scanner.nextLine();
         }
 
-        if (currentBalance <= 0) {
-            System.out.println("Out of money!");
+        if (balance > 0) {
+            System.out.printf("Total spent: $%.2f. Remaining: $%.2f", totalSpend, balance);
         } else {
-            double totalSpent = copyCurrentBalance - currentBalance;
-            System.out.printf("Total spent: $%.2f. Remaining: $%.2f", totalSpent, currentBalance);
+            System.out.println("Out of money!");
         }
 
     }

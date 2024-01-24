@@ -1,43 +1,48 @@
-package basicSyntaxConditionalStatementsAndLoopsMoreExercise;
-
 import java.util.Scanner;
 
 public class SortNumbers {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int num1 = Integer.parseInt(scanner.nextLine());
-        int num2 = Integer.parseInt(scanner.nextLine());
-        int num3 = Integer.parseInt(scanner.nextLine());
+        double firstNumber = Double.parseDouble(scanner.nextLine());
+        double secondNumber = Double.parseDouble(scanner.nextLine());
+        double thirdNumber = Double.parseDouble(scanner.nextLine());
+        double maxNumber = 0.0;
+        double middleNumber = 0.0;
+        double minNumber = 0.0;
 
-        for (int i = 1; i <= 3; i++) {
-            if (num1 > num2 && num1 > num3) {
-                System.out.println(num1);
+        for (int i = 0; i < 3; i++) {
+            if (firstNumber >= secondNumber && firstNumber >= thirdNumber) {
+                maxNumber = firstNumber;
+            } else if (secondNumber >= firstNumber && secondNumber >= thirdNumber) {
+                maxNumber = secondNumber;
+            } else if (thirdNumber >= firstNumber && thirdNumber >= secondNumber){
+                maxNumber = thirdNumber;
             }
-            if (num2 > num1 && num2 > num3) {
-                System.out.println(num2);
+
+            if (firstNumber <= secondNumber && firstNumber <= thirdNumber) {
+                minNumber = firstNumber;
+            } else if (secondNumber <= firstNumber && secondNumber <= thirdNumber) {
+                minNumber = secondNumber;
+            } else if (thirdNumber <= firstNumber && thirdNumber <= secondNumber){
+                minNumber = thirdNumber;
             }
-            if (num3 > num1 && num3 > num2) {
-                System.out.println(num3);
+
+            if (firstNumber == maxNumber && secondNumber == minNumber) {
+                middleNumber = thirdNumber;
+            } else if (secondNumber == maxNumber && thirdNumber == minNumber) {
+                middleNumber = firstNumber;
+            } else if (firstNumber == minNumber && secondNumber == maxNumber) {
+                middleNumber = thirdNumber;
+            } else if (secondNumber == minNumber && thirdNumber == maxNumber) {
+                middleNumber = firstNumber;
+            } else if (firstNumber == maxNumber && thirdNumber == minNumber) {
+                middleNumber = secondNumber;
+            } else if (firstNumber == minNumber && thirdNumber == maxNumber) {
+                middleNumber = secondNumber;
             }
         }
 
-
+        System.out.printf("%.0f%n%.0f%n%.0f%n", maxNumber, middleNumber, minNumber);
     }
-
-    /*private static void printSortedNumbers(int num1, int num2, int num3) {
-        if (num1 > num2 && num1 > num3) {
-            System.out.println(num1);
-        }
-        if (num2 > num1 && num2 > num3) {
-            System.out.println(num2);
-        }
-        if (num3 > num1 && num3 > num2) {
-            System.out.println(num3);
-        }
-    }*/
-
 }
-
-/*Read three real others.numbers and sort them in descending order. Print each number on a new line.*/
-

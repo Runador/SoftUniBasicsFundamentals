@@ -2,34 +2,28 @@ package basicSyntaxConditionalStatementsAndLoopsExercise;
 
 import java.util.Scanner;
 
-public class PadawanEquipment {
+public class PadawanEquipment2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         double amountOfMoney = Double.parseDouble(scanner.nextLine());
-        int amountOfStudents = Integer.parseInt(scanner.nextLine());
-        double lightsabersPrice = Double.parseDouble(scanner.nextLine());
-        double beltsPrice = Double.parseDouble(scanner.nextLine());
-        double robesPrice = Double.parseDouble(scanner.nextLine());
+        int numberOfStudents = Integer.parseInt(scanner.nextLine());
+        double lightSaberPrice = Double.parseDouble(scanner.nextLine());
+        double robePrice = Double.parseDouble(scanner.nextLine());
+        double beltPrice = Double.parseDouble(scanner.nextLine());
+        double lightSabersTotalAmount = Math.ceil(numberOfStudents + (numberOfStudents * 0.10));
+        double beltsFinalAmount = numberOfStudents - (numberOfStudents / 6);
+        double beltsTotalPrice = beltsFinalAmount * beltPrice;
 
-        double lightsabersSum = (amountOfStudents * lightsabersPrice);
-        double lightsabersAll = lightsabersSum + (lightsabersSum * 0.10);
-        double freeBeltsCounter = 0;
+        double result = (lightSabersTotalAmount * lightSaberPrice) + beltsTotalPrice + (robePrice * numberOfStudents);
 
-        while (amountOfStudents != 0) {
-            if (amountOfStudents % 6 == 0) {
-                freeBeltsCounter++;
-            }
-            amountOfStudents--;
+        double neededMoney = Math.abs(amountOfMoney - result);
+
+        if (result <= amountOfMoney) {
+            System.out.printf("The money is enough - it would cost %.2f lv.", result);
+        } else {
+            System.out.printf("George Lucas will need %.2flv more.", neededMoney);
         }
-
-        double beltsAll = (amountOfStudents + freeBeltsCounter) * beltsPrice;
-        double robesAll = amountOfStudents * robesPrice;
-        double sumAllPrices = lightsabersAll + beltsAll + robesAll;
-        double difference = Math.abs(amountOfMoney - sumAllPrices);
-
-        System.out.println(sumAllPrices);
-        System.out.println(difference);
 
     }
 }

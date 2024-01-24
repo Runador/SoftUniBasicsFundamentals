@@ -1,22 +1,31 @@
-package dataTypesAndVariablesMoreExercise;
-
 import java.util.Scanner;
 
 public class BalancedBrackets {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int n = Integer.parseInt(scanner.nextLine());
-        String[] strArray = new String[n];
+        byte n = Byte.parseByte(scanner.nextLine());
+        byte openingCount = 0;
+        byte closingCount = 0;
+        boolean isUnbalanced = false;
 
-        for (int i = 0; i < n; i++) {
-
-            String input = scanner.nextLine();
-            strArray[i] = input;
-
-            if (input.equals("(") || input.equals(")")) {
-
+        for (byte i = 1; i <= n; i++) {
+            char symbol = scanner.nextLine().charAt(0);
+            if (symbol == '(') {
+                openingCount++;
+            } else if (symbol == ')') {
+                closingCount++;
+                if (openingCount - closingCount != 0) {
+                    System.out.println("UNBALANCED");
+                    isUnbalanced = true;
+                }
             }
+        }
+
+        if (openingCount == closingCount) {
+            System.out.println("BALANCED");
+        } else if (isUnbalanced) {
+            System.out.println("UNBALANCED");
         }
 
     }

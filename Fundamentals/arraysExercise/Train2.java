@@ -1,5 +1,4 @@
-package arraysExercise;
-
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Train2 {
@@ -7,20 +6,19 @@ public class Train2 {
         Scanner scanner = new Scanner(System.in);
 
         int n = Integer.parseInt(scanner.nextLine());
-
-        int[] wagon = new int[n];
-
+        int[] train = new int[n];
         int sum = 0;
 
-        for (int i = 0; i < n; i++) {
-            wagon[i] = Integer.parseInt(scanner.nextLine());
-            sum+=wagon[i];
+        for (int wagon = 0; wagon < n; wagon++) {
+            int people = Integer.parseInt(scanner.nextLine());
+            sum += people;
+            train[wagon] = people;
         }
 
-        for (int i = 0; i < wagon.length; i++) {
-            System.out.print(wagon[i] + " ");
+        for (int i = 0; i < train.length; i++) {
+            System.out.print(train[i] + " ");
         }
-        System.out.println();
-        System.out.println(sum);
+
+        System.out.println("\n" + sum);
     }
 }
