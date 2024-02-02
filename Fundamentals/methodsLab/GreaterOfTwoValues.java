@@ -1,49 +1,47 @@
-package methodsLab;
+package MethodsLab;
 
 import java.util.Scanner;
 
 public class GreaterOfTwoValues {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         String type = scanner.nextLine();
 
-        if (type.equals("int")) {
-            int num1 = Integer.parseInt(scanner.nextLine());
-            int num2 = Integer.parseInt(scanner.nextLine());
-            System.out.println(getMax(num1, num2));
-        } else if (type.equals("char")) {
-            char ch1 = scanner.nextLine().charAt(0);
-            char ch2 = scanner.nextLine().charAt(0);
-            System.out.println(getMax(ch1, ch2));
-        } else if (type.equals("string")) {
-            String str1 = scanner.nextLine();
-            String str2 = scanner.nextLine();
-            System.out.println(getMax(str1, str2));
+        switch (type) {
+            case "int":
+                int first = Integer.parseInt(scanner.nextLine());
+                int second = Integer.parseInt(scanner.nextLine());
+                System.out.println(getMax(first, second));
+                break;
+            case "char":
+                char firstSym = scanner.nextLine().charAt(0);
+                char secondSym = scanner.nextLine().charAt(0);
+                System.out.println(getMax(firstSym, secondSym));
+                break;
+            case "string":
+                String firstString = scanner.nextLine();
+                String secondString = scanner.nextLine();
+                System.out.println(getMax(firstString, secondString));
         }
     }
 
-    private static int getMax(int num1, int num2) {
-        if (num1 > num2) {
-            return num1;
+    private static int getMax(int first, int second) {
+        return Math.max(first, second);
+    }
+
+    private static char getMax(char first, char second) {
+        if (first > second) {
+            return first;
         } else {
-            return num2;
+            return second;
         }
     }
 
-    private static char getMax(char ch1, char ch2) {
-        if (ch1 > ch2) {
-            return ch1;
+    private static String getMax(String first, String second) {
+        if (first.compareTo(second) > 0) {
+            return first;
         } else {
-            return ch2;
-        }
-    }
-
-    private static String getMax(String str1, String str2) {
-        if (str1.compareTo(str2) > 0) {
-            return str1;
-        } else {
-            return str2;
+            return second;
         }
     }
 

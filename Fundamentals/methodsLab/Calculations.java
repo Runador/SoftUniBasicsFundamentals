@@ -1,41 +1,41 @@
-package methodsLab;
+package MethodsLab;
 
 import java.util.Scanner;
 
 public class Calculations {
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
 
-        String line = scanner.nextLine();
-        int firstNumber = Integer.parseInt(scanner.nextLine());
-        int secondNumber = Integer.parseInt(scanner.nextLine());
+        int first = Integer.parseInt(scanner.nextLine());
+        int second = Integer.parseInt(scanner.nextLine());
 
-        if (line.equals("add")) {
-            add(firstNumber, secondNumber);
-        } else if (line.equals("multiply")) {
-            multiply(firstNumber, secondNumber);
-        } else if (line.equals("subtract")) {
-            subtract(firstNumber, secondNumber);
-        } else if (line.equals("divide")) {
-            divide(firstNumber, secondNumber);
+        if (input.equals("add")) {
+            System.out.println(add(first, second));
+        } else if (input.equals("subtract")) {
+            System.out.println(subtract(first, second));
+        } else if (input.equals("multiply")) {
+            System.out.println(multiply(first, second));
+        } else if (input.equals("divide")) {
+            System.out.println(divide(first, second));
         }
-
     }
 
-    private static void add(int firstNumber, int secondNumber) {
-        System.out.println(firstNumber + secondNumber);
+    private static int add (int first, int second) {
+        return first + second;
     }
 
-    private static void multiply(int firstNumber, int secondNumber) {
-        System.out.println(firstNumber * secondNumber);
+    private static int subtract(int first, int second) {
+        return first - second;
     }
 
-    private static void subtract(int firstNumber, int secondNumber) {
-        System.out.println(firstNumber - secondNumber);
+    private static int multiply(int first, int second) {
+        return first * second;
     }
 
-    private static void divide(int firstNumber, int secondNumber) {
-        System.out.println(firstNumber / secondNumber);
+    private static int divide(int first, int second) {
+        return first / second;
     }
 
 }

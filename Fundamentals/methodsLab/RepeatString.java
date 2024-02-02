@@ -1,22 +1,21 @@
-package methodsLab;
+package MethodsLab;
 
 import java.util.Scanner;
 
 public class RepeatString {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         String input = scanner.nextLine();
-        int n = Integer.parseInt(scanner.nextLine());
-        System.out.println(repeatString(input, n));
+        int counts = Integer.parseInt(scanner.nextLine());
+        System.out.println(repeatString(input, counts));
     }
 
-    private static String repeatString(String input, int count) {
-        String repeatedString = "";
-        for (int i = 0; i < count; i++) {
-            repeatedString += "" + input;
+    private static String repeatString(String input, int counts) {
+        String result = "";
+        for (int i = 0; i < counts; i++) {
+            result += input;
         }
-        return repeatedString;
+        return result;
     }
 
 }
