@@ -1,36 +1,41 @@
-package methodsExercise;
+package MethodsExercises;
 
 import java.util.Scanner;
 
 public class TopNumber {
     public static void main(String[] args) {
-
+        
         Scanner scanner = new Scanner(System.in);
 
-        int n = Integer.parseInt(scanner.nextLine());
-        //Its sum of digits is divisible by 8, e.g. 8, 16, 88.
-        //Holds at least one odd digit, e.g. 232, 707, 87578.
+        int number = Integer.parseInt(scanner.nextLine());
 
-        isDivisibleBy8(n);
+        for (int i = 1; i <= number; i++) {
+            if (isContainsOddDigit(i) && isDivisibleByEight(i)) {
+                System.out.println(i);
+            }
+        }
 
     }
 
-    private static boolean isDivisibleBy8(int number) {
-        int reminder;
-        int sum = 0;
+    private static boolean isContainsOddDigit(int number) {
         while (number != 0) {
-            reminder = number % 10;
-            sum += reminder;
-            if (sum % 8 == 0) {
+            int reminder = number % 10;
+            if (reminder % 2 == 1) {
                 return true;
             }
-            number--;
+            number /= 10;
         }
         return false;
     }
 
-    /*private static boolean isHoldAtLeast1Digit(int number) {
-
-    }*/
+    private static boolean isDivisibleByEight(int number) {
+        int sum = 0;
+        while (number != 0) {
+            int reminder = number % 10;
+            sum += reminder;
+            number /= 10;
+        }
+        return sum % 8 == 0;
+    }
 
 }
