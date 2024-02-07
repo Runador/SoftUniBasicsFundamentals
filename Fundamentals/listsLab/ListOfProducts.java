@@ -1,9 +1,6 @@
-package listsLab;
+package ListsLab;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ListOfProducts {
@@ -11,19 +8,22 @@ public class ListOfProducts {
         Scanner scanner = new Scanner(System.in);
 
         int n = Integer.parseInt(scanner.nextLine());
-
-        List<String> products = new ArrayList<>();
+        List<String> numbersList = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
             String product = scanner.nextLine();
-            products.add(product);
+            numbersList.add(product);
         }
 
-        for (int i = 0; i < products.size(); i++) {
-            Collections.sort(products);
-            System.out.println(i + 1 + "." + products.get(i));
+        Collections.sort(numbersList);
+
+        int counter = 1;
+
+        for (String element : numbersList) {
+            System.out.println(counter + "." + element);
+            counter++;
         }
 
+        // System.out.println(numbersList.toString().replaceAll("[\\[\\],]", ""));
     }
-
 }
