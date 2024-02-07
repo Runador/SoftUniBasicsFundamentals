@@ -1,9 +1,6 @@
-package listsLab;
+package ListsLab;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class RemoveNegativesAndReverse {
@@ -11,27 +8,19 @@ public class RemoveNegativesAndReverse {
         Scanner scanner = new Scanner(System.in);
 
         List<Integer> numbersList = Arrays.stream(scanner.nextLine().split(" "))
-                .map(Integer::parseInt)
-                .collect(Collectors.toList());
+                .map(Integer::parseInt).collect(Collectors.toList());
+        List<Integer> positiveNumbers = new ArrayList<>();
 
         for (int i = 0; i < numbersList.size(); i++) {
-            int index = numbersList.get(i);
-            //numbersList.removeIf(e -> index < 0);
-            if (index < 0) {
-                numbersList.remove(i);
-                i = -1;
+            if (numbersList.get(i) > 0) {
+                positiveNumbers.add(numbersList.get(i));
             }
         }
-
-        if (numbersList.isEmpty()) {
+        if (positiveNumbers.isEmpty()) {
             System.out.println("empty");
+        } else {
+            Collections.reverse(positiveNumbers);
+            System.out.println(positiveNumbers.toString().replaceAll("[\\[\\],]", ""));
         }
-        Collections.reverse(numbersList);
-
-        for (int element : numbersList) {
-            System.out.print(element + " ");
-        }
-
     }
-
 }
