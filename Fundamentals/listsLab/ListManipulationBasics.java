@@ -1,4 +1,4 @@
-package listsLab;
+package ListsLab;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,37 +10,35 @@ public class ListManipulationBasics {
         Scanner scanner = new Scanner(System.in);
 
         List<Integer> numbersList = Arrays.stream(scanner.nextLine().split(" "))
-                .map(Integer::parseInt)
-                .collect(Collectors.toList());
+                .map(Integer::parseInt).collect(Collectors.toList());
 
         String input = scanner.nextLine();
 
         while (!input.equals("end")) {
 
-            String command = input.split(" ")[0];
-            int number = Integer.parseInt(input.split(" ")[1]);
+            String[] tokens = input.split(" ");
+            String command = tokens[0];
+            int number = Integer.parseInt(tokens[1]);
 
-            switch (command) {
-                case "Add":
-                    numbersList.add(number);
-                    break;
-                case "Remove":
-                    numbersList.remove(Integer.valueOf(number));
-                    break;
-                case "RemoveAt":
-                    numbersList.remove(number);
-                    break;
-                case "Insert":
-                    int index = Integer.parseInt(input.split(" ")[2]);
+            if (command.equals("Add")) {
+                numbersList.add(number);
+            } else if (command.equals("Remove")) {
+                numbersList.remove(Integer.valueOf(number));
+            } else if (command.equals("RemoveAt")) {
+                if (numbersList.size() > 0 && number <= numbersList.size() - 1) {
+                    numbersList.remove(number);                }
+            } else if (command.equals("Insert")) {
+                int index = Integer.parseInt(tokens[2]);
+                if (numbersList.size() > 0 && index <= numbersList.size() - 1) {
                     numbersList.add(index, number);
-                    break;
+                }
             }
 
             input = scanner.nextLine();
-
         }
 
-        System.out.println(numbersList.toString().replaceAll("[\\[\\],]", ""));
-
+        for (int number : numbersList) {
+            System.out.print(number + " ");
+        }
     }
 }
