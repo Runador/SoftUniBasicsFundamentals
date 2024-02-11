@@ -10,12 +10,13 @@ public class SoftUniReception {
         int studentsCount = Integer.parseInt(scanner.nextLine());
 
         int studentsCountPerHour = firstEmployeeEfficiency + secondEmployeeEfficiency + thirdEmployeeEfficiency;
-        int breaks = studentsCount % 4;
-        int reminder = studentsCount / studentsCountPerHour;
-        int hours = 1;
+        int hours = 0;
 
-        if (studentsCountPerHour > reminder) {
+        while (studentsCount > 0) {
             hours++;
+            if (hours % 4 != 0) {
+                studentsCount -= studentsCountPerHour;
+            }
         }
 
         System.out.println("Time needed: " + hours + "h.");
