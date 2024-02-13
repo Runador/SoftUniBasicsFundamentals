@@ -9,23 +9,22 @@ public class P01BlackFlag {
         double daysOfPlunder = Double.parseDouble(scanner.nextLine());
         double dailyPlunder = Double.parseDouble(scanner.nextLine());
         double expectedPlunder = Double.parseDouble(scanner.nextLine());
-        double sum = 0.0;
+        double totalPlunder = 0.0;
 
         for (int i = 1; i <= daysOfPlunder; i++) {
+            totalPlunder += dailyPlunder;
             if (i % 3 == 0) {
-                sum += dailyPlunder + dailyPlunder * 0.5;
-            } else if (i % 5 == 0) {
-                sum += dailyPlunder;
-                sum -= sum * 0.3;
-            } else {
-                sum += dailyPlunder;
+                totalPlunder += dailyPlunder * 0.5;
+            }
+            if (i % 5 == 0) {
+                totalPlunder -= totalPlunder * 0.3;
             }
         }
 
-        double percent = (sum / expectedPlunder) * 100;
+        double percent = (totalPlunder / expectedPlunder) * 100;
 
-        if (sum >= expectedPlunder) {
-            System.out.printf("Ahoy! %.2f plunder gained.", sum);
+        if (totalPlunder >= expectedPlunder) {
+            System.out.printf("Ahoy! %.2f plunder gained.", totalPlunder);
         } else {
             System.out.printf("Collected only %.2f%% of the plunder.", percent);
         }
