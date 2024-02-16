@@ -12,7 +12,7 @@ public class AppendArrays {
 
         Collections.reverse(array);
 
-        System.out.println(array.toString().replaceAll("[\\[\\],]", "")
-                .replaceAll("\\s+", " ").trim());
+        String output = array.toString().replaceAll("[\\[\\],]", "").trim();
+        System.out.println(output.replaceAll("\\s+", " "));
     }
 }
