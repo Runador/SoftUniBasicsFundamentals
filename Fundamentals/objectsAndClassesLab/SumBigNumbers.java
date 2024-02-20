@@ -1,17 +1,16 @@
-package objectsAndClassesLab;
+package ObjectsAndClassesLab;
 
-import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class SumBigNumbers {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        BigInteger bigInteger1 = new BigInteger(scanner.nextLine());
-        BigInteger bigInteger2 = new BigInteger(scanner.nextLine());
-
-        BigInteger result = bigInteger1.add(bigInteger2);
-        System.out.println(result);
+        BigDecimal firstNumber = new BigDecimal(scanner.nextLine());
+        BigDecimal secondNumber = new BigDecimal(scanner.nextLine());
+        BigDecimal sum = firstNumber.add(secondNumber);
+        System.out.println(sum);
 
     }
 }
