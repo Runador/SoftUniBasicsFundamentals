@@ -4,7 +4,7 @@
 
 | Module      | Description |
 | :---        |    :----:   |
-| [Basics](https://github.com/Runador/SoftUniBasicsFundamentals/tree/main/Basics)      | This folder contains all projects from the Basics module from SoftUni. |
-| [Fundamentals](https://github.com/Runador/SoftUniBasicsFundamentals/tree/main/Fundamentals)   | This folder contains projects from the Fundamentals module from SoftUni. Not finished yet. |
+| [Basics](https://github.com/Runador/SoftUniBasicsFundamentals/tree/main/Basics)      | This folder contains all Projects from the Basics Module from Software University. |
+| [Fundamentals](https://github.com/Runador/SoftUniBasicsFundamentals/tree/main/Fundamentals)   | This folder contains all Projects from the Fundamentals Module from Software University. |
 
 
