@@ -1,4 +1,4 @@
-package textProcessingLab;
+package TextProcessingLab;
 
 import java.util.Scanner;
 
@@ -7,23 +7,16 @@ public class ReverseStrings {
         Scanner scanner = new Scanner(System.in);
 
         String input = scanner.nextLine();
+        StringBuilder stringBuilder;
 
         while (!input.equals("end")) {
-            System.out.println(input + " = " + reverseTheString(input));
+
+            stringBuilder = new StringBuilder(input);
+            stringBuilder.reverse();
+            System.out.printf("%s = %s%n", input, stringBuilder);
+
             input = scanner.nextLine();
         }
 
     }
-
-    public static StringBuilder reverseTheString(String input) {
-        String reversedString = "";
-        StringBuilder stringBuilder = new StringBuilder(reversedString);
-
-        for (int i = input.length() - 1; i >= 0; i--) {
-            char symbol = input.charAt(i);
-            stringBuilder.append(symbol);
-        }
-        return stringBuilder;
-    }
-
 }
