@@ -1,4 +1,4 @@
-package methodsMoreExercise;
+package MethodsMoreExercise;
 
 import javax.xml.crypto.dom.DOMCryptoContext;
 import java.util.Scanner;
