@@ -1,4 +1,4 @@
-package MapsLambdaAndStreamAPIExercises;
+package Maps.MapsLambdaAndStreamAPIExercises;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
