@@ -1,6 +1,6 @@
 ## Hello :wave:
 
-### Here you can find my resolved tasks from the   Software University:
+### Here you can find my resolved tasks from the     Software University:
 
 | Module      | Description |
 | :---        |    :----:   |
